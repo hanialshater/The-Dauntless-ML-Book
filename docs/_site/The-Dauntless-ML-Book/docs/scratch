@@ -1,0 +1,20 @@
+
+export JEKYLL_VERSION=3.5
+
+#create new blog
+docker run --rm --volume="$PWD:/srv/jekyll" -it jekyll/jekyll:$JEKYLL_VERSION jekyll new .
+
+#install dependinces
+docker run --rm \
+  --volume="$PWD:/srv/jekyll" \
+  --volume="$PWD/vendor/bundle:/usr/local/bundle" \
+  -it jekyll/jekyll:$JEKYLL_VERSION \
+  jekyll build
+
+
+#serve 
+docker run --name newblog --volume="$PWD:/srv/jekyll" -p 3000:4000 -it jekyll/jekyll:$JEKYLL_VERSION jekyll serve --watch --drafts
+
+#refresh chagnes by restart
+docker restart newblog
+
