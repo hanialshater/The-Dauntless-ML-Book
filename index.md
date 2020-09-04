@@ -2,7 +2,6 @@
 
 The starting page of my book with `d2lbook`.
 
-
 ```toc
 :maxdepth: 2
 :numbered:
@@ -16,3 +15,4 @@ ch5_hybrid_optimizer_cnn/index
 ch6_message_passing_twa/index
 ch7_the_master_algorithm/index
 ```
+
